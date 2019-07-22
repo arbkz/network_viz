@@ -16,11 +16,11 @@ The app:
 
 Check boxes, selectors and textbox inputs allow the user to:      
 
-* Set the number of vertices
-* Set the number of edges 
+* Set the number of vertices (2-26)
+* Set the number of edges (2-520)
 * Show/hide vertices
 * Show/hide vertex labels
-* Scale edge width according to the edge weight (number of edges between 2 vertices)
+* Scale edge width according to weight 
 * Change the type of edge (arcs or straight lines)
 * Change the colour of edges/vertices/labels
 
