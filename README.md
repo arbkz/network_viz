@@ -27,14 +27,14 @@ The user can choose any start and end node name from A-Z and These will be the s
 
 * Show/hide vertices
 * Show/hide vertex labels
-
 * Change edge width according to edge weight 
 * Change the type of edge (arcs or straight lines)
 * Change the colour of edges/vertices/labels
+* Select start and end nodes for shortest path calculation
 
 ## Dependencies
 
-The app uses: ggplot2, ggraph, shiny, tidygraph, tidyverse  
+The app uses: ggplot2, ggraph, shiny, tidygraph, tidyverse, igraph, shinythemes
 
 ## Further Reading
 
