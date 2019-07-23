@@ -1,26 +1,34 @@
 # network_viz
-simple network visualisation shiny app for coursera's developing data products course
+
+Network graph visualisation shiny app 
 
 ## Intro
 
-This simple shiny app generates a network graph based on various input parameters.
+This  simple shiny app plots a random network graph and prints the shortest path between any 2 points
 
 The app:   
 
-* Generates a random set of edges      
-* Calculates the weight of each edge (based on the count of edges with the same source/destination)   
+* Generates a random directed weighted graph    
 * Creates a tidy graph object from these edges    
-* Plots the graph using ggplot with various graphical parameters based on user input   
+* Finds the shortest path between 2 vertices
+* Plots the graph using ggplot with various graphical parameters determined by the user input
 
 ## User Input Options
 
-Check boxes, selectors and textbox inputs allow the user to:      
-
+**The Graph** .  
 * Set the number of vertices (2-26)
 * Set the number of edges (2-520)
+
+**Shortest Path**
+
+The user can choose any start and end node name from A-Z and These will be the start and end node for the shortest path calculation.
+
+**Graphical Parameters**
+
 * Show/hide vertices
 * Show/hide vertex labels
-* Scale edge width according to weight 
+
+* Change edge width according to edge weight 
 * Change the type of edge (arcs or straight lines)
 * Change the colour of edges/vertices/labels
 
