@@ -1,5 +1,5 @@
 #
-# This is a network graph 
+# gNetwork_viz
 #
 # Find out more about building applications with Shiny here:
 #
@@ -31,32 +31,30 @@ ui <- fluidPage(
                         "Number of edges:",
                         min = 2,
                         max = 520,
-                        value = 255),
-            
+                        value = 120),
             textInput("from", "start path @ ", "A"),
-            textInput("to", "end path @", "Z"),
+            textInput("to", "end path @", "P"),
             checkboxInput("show_vertices","show vertices", value = TRUE ),
             checkboxInput("show_labels","show vertex labels", value = TRUE),
             checkboxInput("show_weight","show edge weight", value = TRUE),
             selectInput("edge_type","straight lines or arcs", c("straight lines", "arcs")),
-            textInput("edge_colour", "edge colour", "darkgrey"),
-            textInput("vertex_colour", "vertex colour", "darkblue"),
-            textInput("text_colour", "text colour", "white"),
+            selectInput(inputId = "edge_colour", label = "edge colour", 
+                        choices = colors(), selected = "darkgrey"),
+            selectInput(inputId = "vertex_colour", label = "vertex colour",
+                        choices = colors(), selected = "darkblue"),
+            selectInput(inputId = "text_colour", label =  "text colour", 
+                        choices = colors(), selected = "white"),
             submitButton("submit"),
             br(),
             a(href="https://github.com/arbkz/network_viz/blob/master/README.md", "click here for help")
             
         ),
-        
         #  Main Panel 
         mainPanel(
-            tabsetPanel(type = "tabs",
-                tabPanel("app", br(), textOutput("out_1")),
-                    plotOutput("distPlot"),
-                    h4("shortest path:"),
-                    textOutput("gsp"))
+           plotOutput("distPlot"),
+           h4("shortest path:"),
+           textOutput("gsp")
         )
-        tabPanel("app", br(), textOutput("out_1"))
     )
 )
 #### Server Logic
@@ -109,7 +107,7 @@ server <- function(input, output) {
             if (length(p) != 1) output$gsp <- renderText(LETTERS[p])
             else output$gsp <- renderText("No path found")
         } 
-        else { output$gsp <- renderText("Invalid start/end node name")
+        else { output$gsp <- renderText("start or end node does not exist")
           }
         #  plot with options based on  user input  
         g <-    if (input$edge_type != "arcs") {
