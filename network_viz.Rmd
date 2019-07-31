@@ -34,13 +34,14 @@ Check boxes, selectors and textbox inputs allow the user to:
 
 * Set the number of vertices
 * Set the number of edges 
+* Set start and end node for shortest path calculation
 * Show/hide vertices
 * Show/hide vertex labels
 * Scale edge width according to the edge weight (number of edges between 2 vertices)
 * Change the type of edge (arcs or straight lines)
 * Change the colour of edges/vertices/labels
 
-## Sample Network Graph 
+## Simple Network Graph 
 
 ```{r tidy_graph}
 
@@ -57,15 +58,14 @@ rename(dest_id = num) %>% select(src_id, dest_id, weight)
 g_tidy <- tbl_graph(nodes = nodes, edges = edges, directed = TRUE)
 
 g <-   ggraph(g_tidy, layout = "graphopt") + theme_graph()  + 
-        geom_edge_link(aes(width = weight), alpha = 0.6, colour = "darkgrey") + 
-        scale_edge_width(range = c(0.2, 2.5)) + 
-        
-        geom_node_point(colour = "black", cex = 8) + 
-        geom_node_point(colour = "orange", cex = 7.5) +
-        geom_node_text(aes(label = label), colour = "blue", repel = FALSE, size = 5) 
+        geom_edge_link(aes(width = weight), alpha = 0.6, colour = "darkgrey", arrow = arrow()) + 
+        scale_edge_width(range = c(0.2, 2.5)) +
+        geom_node_point(colour = "black", cex = 5) + 
+        geom_node_point(colour = "blue", cex = 4) +
+        geom_node_text(aes(label = label), colour = "white", repel = FALSE, size = 3.5) 
 g
 
-cat("shortest path from A (1) to F (6): ",get.shortest.paths(graph = g_tidy, from = 1, to = 6)$vpath[[1]])
+cat("shortest path from A to F is: ", LETTERS[get.shortest.paths(graph = g_tidy, from = 1, to = 6)$vpath[[1]]])
 ```        
 
 
