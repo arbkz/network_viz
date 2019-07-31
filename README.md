@@ -22,7 +22,7 @@ The app:
 **Shortest Path**
 
 The user can choose any start and end node name from A-Z and These will be the start and end node for the shortest path calculation.   
-Since the graph is directed the order is important, IE path from A-Z is not the same as path from Z-A
+Since the graph is directed, the order is important: IE path from A-Z is not the same as path from Z-A
 
 **Graphical Parameters**
 
