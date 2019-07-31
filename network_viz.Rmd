@@ -25,7 +25,8 @@ The app:
 * Generates a random set of edges      
 * Calculates the weight of each edge (based on the count of edges with the same source/destination)   
 * Creates a tidy graph object from these edges    
-* Plots the graph using ggplot with various graphical parameters based on user input   
+* Plots the graph using ggplot with various graphical parameters based on user input 
+* Calculates the shortest path between 2 points chosen by the user
 
 
 ## User Input   
